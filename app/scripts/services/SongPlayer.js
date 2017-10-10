@@ -164,6 +164,13 @@
           }
         };
 
+        SongPlayer.volume = null;
+
+        SongPlayer.setVolume = function(volume) {
+          if (currentBuzzObject) {
+            currentBuzzObject.setVolume(volume);
+          }
+        };
 
 
          return SongPlayer;
