@@ -29,6 +29,7 @@
              preload: true
            });
 
+
            currentBuzzObject.bind('timeupdate', function() {
              $rootScope.$apply(function() {
                SongPlayer.currentTime = currentBuzzObject.getTime();
@@ -83,6 +84,7 @@
          * @type {Number}
          */
          SongPlayer.currentTime = null;
+
 
          /**
          * @function play
@@ -181,6 +183,12 @@
           }
         };
 
+        SongPlayer.onClickMute = function(event, volume) {
+          if (volume != 0) {
+            SongPlayer.setVolume(0);
+            SongPlayer.volume = null;
+          }
+        };
 
          return SongPlayer;
     }
