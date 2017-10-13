@@ -172,6 +172,10 @@
         */
         SongPlayer.volume = 50;
 
+
+
+        SongPlayer.muted = false;
+
         /**
         * @function setCurrentVolume
         * @desc Set current volume of currently playing song
@@ -183,10 +187,19 @@
           }
         };
 
-        SongPlayer.onClickMute = function(event, volume) {
-          if (volume != 0) {
+        
+
+      var premuteVolume;
+
+        SongPlayer.onClickMute = function() {
+          if (SongPlayer.muted === false) {
+            premuteVolume = SongPlayer.volume;
             SongPlayer.setVolume(0);
-            SongPlayer.volume = null;
+            SongPlayer.muted = true;
+          } else {
+            SongPlayer.setVolume(premuteVolume);
+            SongPlayer.muted = false;
+            console.log(premuteVolume);
           }
         };
 
