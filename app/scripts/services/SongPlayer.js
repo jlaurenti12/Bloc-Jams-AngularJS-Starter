@@ -26,6 +26,7 @@
 
            currentBuzzObject = new buzz.sound(song.audioUrl, {
              formats: ['mp3'],
+             autoplay: true,
              preload: true
            });
 
@@ -153,7 +154,14 @@
             playSong(song);
           }
 
-        };
+      };
+
+      SongPlayer.autoplay = function() {
+        if (SongPlayer.currentSong != null && SongPlayer.currentSong.duration == SongPlayer.currentTime) {
+          SongPlayer.next();
+        }
+      };
+
 
         /**
         * @function setCurrentTime
@@ -172,8 +180,6 @@
         */
         SongPlayer.volume = 50;
 
-
-
         SongPlayer.muted = false;
 
         /**
@@ -188,8 +194,6 @@
           SongPlayer.volume = volume;
         };
 
-
-
       var premuteVolume;
 
         SongPlayer.onClickMute = function() {
@@ -200,7 +204,6 @@
           } else {
             SongPlayer.setVolume(premuteVolume);
             SongPlayer.muted = false;
-            console.log(premuteVolume);
           }
         };
 
