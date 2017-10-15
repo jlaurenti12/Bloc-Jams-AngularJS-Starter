@@ -157,8 +157,9 @@
       };
 
       SongPlayer.autoplay = function() {
-        if (SongPlayer.currentSong != null && SongPlayer.currentSong.duration == SongPlayer.currentTime) {
+        if (SongPlayer.currentSong != null && SongPlayer.currentSong.playing && SongPlayer.currentSong.duration == SongPlayer.currentTime) {
           SongPlayer.next();
+          return true;
         }
       };
 

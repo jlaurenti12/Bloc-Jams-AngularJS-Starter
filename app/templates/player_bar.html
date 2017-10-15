@@ -6,8 +6,8 @@
              </a>
              <a class="play-pause">
                <span class="ion-play"
-                  ng-show="playerBar.songPlayer.autoplay()"
                   ng-show="!playerBar.songPlayer.currentSong.playing"
+                  ng-bind="playerBar.songPlayer.autoplay()"
                   ng-click="playerBar.songPlayer.play()">
                </span>
                <span class="ion-pause"
